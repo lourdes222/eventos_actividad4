@@ -46,9 +46,21 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     //evento "submit" formulario buscar
-   
+   const form_buscar=document.querySelector("#form-buscar");
+   form_buscar.addEventListener("submit", (e)=>{
+    e.preventDefault();
+
+    const personaABuscar={
+        nombreABuscar: form_buscar.nombre.value,
+        dniABuscar: form_buscar.dni.value
+    }
+console.log(personaABuscar)
+    buscarPersona(personaABuscar)
+   })
 
     //boton limpiar filtros
+    const btn_filtros=document.querySelector('#btn-filtros')
+    btn_filtros.addEventListener()
    
 
     //evento "submit" formulario modificar

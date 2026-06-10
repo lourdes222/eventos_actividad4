@@ -13,12 +13,29 @@ const agregarPersona=(nuevaPersona)=>{
 }
 
 //funcion Listado de todos los registros de Personas
-const mostrarPersonas=()=>{
+const mostrarPersonas=(personasEncontradas)=>{
     let contenedorPersonas=document.querySelector('#listadoPersonas')
     contenedorPersonas.innerHTML = ''
+
+    if(personasEncontradas){
+
+        personasEncontradas.forEach( p => {   
+            contenedorPersonas.innerHTML += ` <div class="persona">
+             <div class="info">
+                 <p>Nombre: ${p.nombre}</p>
+                 <p>Edad: ${p.edad}</p>
+                 <p>Dni: ${p.dni}</p>
+             </div>
+             <div class="botones">
+                 <button class="btn-modificar">Modificar</button>
+                 <button class="btn-eliminar">Eliminar</button>
+             </div>
+             </div>`
+         })
+
+    }else{
    
     personas=JSON.parse(localStorage.getItem('personas'))
-    
     
     if(personas){
     personas.forEach( p => {   
@@ -36,8 +53,16 @@ const mostrarPersonas=()=>{
     })
 }
 }
+}
 
 //funcion para buscar Personas por nombre o dni
+const buscarPersona = (personaABuscar) => {
+   let personas = JSON.parse(localStorage.getItem('personas'));
+   const personasEncontradas = personas.filter(persona => persona.nombre == personaABuscar.nombreABuscar || persona.dni == personaABuscar.dniABuscar)
+   console.log(personasEncontradas)
+   mostrarPersonas(personasEncontradas)
+}
+
 
 
 //funcion Listado de Personas con filtros de busqueda por nombre y/o dni
