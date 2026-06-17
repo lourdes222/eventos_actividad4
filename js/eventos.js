@@ -60,9 +60,14 @@ console.log(personaABuscar)
 
     //boton limpiar filtros
     const btn_filtros=document.querySelector('#btn-filtros')
-    btn_filtros.addEventListener()
+    btn_filtros.addEventListener('click', (e)=>{
+        e.preventDefault();
+        console.log("hizo click")
+    })
    
 
     //evento "submit" formulario modificar
+    const forModif=document.querySelector('#btn-cerrar-formModif')
+    forModif.addEventListener("")
    
 })
