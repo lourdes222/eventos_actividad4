@@ -97,5 +97,16 @@ const mostrarFormModificar=(nombreActual, edadActual, dni)=>{
     document.querySelector('#form-modificar').style.display='block'
 }
 
+const modificarPersona=(nuevosDatos)=>{
+console.log(nuevosDatos)
+let personas = JSON.parse(localStorage.getItem('personas'));
+let personaAModif= personas.find(p=> p.dni== nuevosDatos.dni)
+ personaAModif.nombre=nuevosDatos.nombreAModif
+ personaAModif.edad=nuevosDatos.edadAModif
+localStorage.setItem("personas", JSON.stringify(personas))
+mostrarPersonas()
+mostrarMensaje("Registro actualizado")
+}
+//funcion 
 
 

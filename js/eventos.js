@@ -67,7 +67,20 @@ console.log(personaABuscar)
    
 
     //evento "submit" formulario modificar
-    const forModif=document.querySelector('#btn-cerrar-formModif')
-    forModif.addEventListener("")
+     const form_modificar= document.querySelector("#form-modificar")
+    form_modificar.addEventListener("submit", (e)=>{
+        e.preventDefault()
+
+        const nuevosDatos={
+            nombreAModif: form_modificar.nombre.value,
+            edadAModif: form_modificar.edad.value,
+            dni:form_modificar.dni.value,
+        }
+        console.log(nuevosDatos)
+        modificarPersona(nuevosDatos)
+        // form_modificar.reset()
+        // form_modificar.style.display="none"
+    })
+ 
    
 })
